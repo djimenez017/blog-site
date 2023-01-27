@@ -9,13 +9,31 @@ def index
 end
 
 def new
+  @article = Article.new
 end
 
 def create
   @article = Article.new(params.require(:article).permit(:title, :description))
+  if @article.save
+    flash[:notice] =  "Article was saved Succesfully"
+    redirect_to @article 
+  else
+    render :new, status: :unprocessable_entity
+  end
+end
 
-  @article.save
-  redirect_to @article
+def edit
+  @article = Article.find(params[:id])
+end
+
+def update
+  @article = Article.find(params[:id])
+  if @article.update(params.require(:article).permit(:title, :description))
+    flash[:notice] = "Article was updated succesfully"
+    redirect_to @article
+  else
+    render 'edit'
+  end
 end
 
 end
