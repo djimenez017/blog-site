@@ -1,3 +1,7 @@
 <h1>Showing Article Details</h1>
 <h2><%= @article.title %></h2>
 <p><%= @article.description %></p>
+
+<td><button><%= link_to 'Edit', edit_article_path(@article), method: :edit %></button></td>
+<td><%= button_to 'Delete', article_path(@article), method: :delete, onclick: "return confirm('Are you sure?')"  %></td>
+<td><button><%= link_to 'Return to Article LIsting', articles_path %></button></td>
