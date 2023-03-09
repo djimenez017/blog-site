@@ -1,7 +1,26 @@
-<h1>Showing Article Details</h1>
-<h2><%= @article.title %></h2>
-<p><%= @article.description %></p>
+<div class="container">
+    <h2 class="text-center p-3">
+        <%= @article.title%>
+    </h2>
 
-<td><button><%= link_to 'Edit', edit_article_path(@article), method: :edit %></button></td>
-<td><%= button_to 'Delete', article_path(@article), method: :delete, onclick: "return confirm('Are you sure?')"  %></td>
-<td><button><%= link_to 'Return to Article LIsting', articles_path %></button></td>
+        <div class="row justify-content-md-center" >
+        <div class="col-8 mt-4">
+            <div class="card text-center">
+            <div class="card-header fst-italic">
+            by Daniel Jimenez
+            </div>
+
+            <div class="card-body">
+                <div class="card-text text-start"><%= simple_format(@article.description) %></div>
+                <%= link_to "Edit", edit_article_path(@article),  class: "btn btn-outline-info" %>
+                <%= link_to "Delete", article_path(@article), class: "btn btn-outline-danger", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+            </div>
+
+            <div class="card-footer text-muted">
+                <small>Created <%= time_ago_in_words(@article.created_at)%> ago, edited <%= time_ago_in_words(@article.updated_at) %> ago</small>
+            </div>
+            </div>
+        </div>
+        </div>
+    <br>
+</div>
