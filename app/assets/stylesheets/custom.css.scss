@@ -1,0 +1,45 @@
+.navbar {
+  background-color: black !important;
+}
+
+.navbar-brand {
+  font-size: 3rem;
+}
+
+h1 {
+  color: black;
+}
+.nav-link {
+  color: white !important;
+}
+
+#logo {
+  color: white;
+  font-weight: bold;
+  font-size: 1.7rem;
+  text-transform: capitalize;
+}
+
+#home-container {
+  margin-top: 25px;
+}
+
+.jumbotron {
+  background-image: asset-url("landing.jpeg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 50px;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+#page-content {
+  flex: 1 0 auto;
+  background-color: lightgray;
+}
+
+/* Other Classes for Page Styling */
